@@ -35,7 +35,7 @@ global.maxBoost = 100;
 global.boost = global.maxBoost;
 healthEffect = 0;
 turnTime = 3000;
-spawnNextCar = 0;
+//spawnNextCar = 0;
 global.turn = 0;
 global.turnType = 1;
 global.distance = 0;
@@ -49,10 +49,10 @@ blackFade = 90;
 global.isBeach = false;
 global.weather = 0;
 beachSide = 1;
-barMove = 64;
+barMove = 128;
 odoSprite = font_add_sprite_ext(spr_odo_sprite,"0123456789",false,3);
 sndWarning = snd_warning;
-instance_create(obj_wall.x,global.goal,obj_finish_line);
+instance_create(roadInitialX,global.goal,obj_finish_line);
 for(i = 0; i &lt; 3; i ++) {speedMove[i] = 0;}
 for(a = 0; a &lt; 8; a ++){scoreMove[a] = 0;}
 for(b = 0; b &lt; 6; b ++){totalDistanceMove[b] = 0;}
@@ -169,7 +169,7 @@ else{
         turnTime = irandom_range(4,9)*1000;
     }
 }
-view_angle = var_wipe(view_angle,global.turn,100,background_vspeed[0]/1000,0);
+/*view_angle = var_wipe(view_angle,global.turn,100,background_vspeed[0]/1000,0);
 for(i = 1; i &lt; 8; i++) {background_vspeed[i] = background_vspeed[0];}
 if(background_index[0] == bkg_water){
     background_index[2] = bkg_bridge_fence_l;
@@ -185,11 +185,11 @@ else{
     background_index[2] = bkg_fence;
     background_index[3] = bkg_fence;
     background_x[2] = obj_wall.x;
-}
+}*/
 health = clamp(health,0,100);
 global.boost = clamp(global.boost,0,200);
 global.time++;
-global.maxSpeed = min((global.difficulty*100) div 9,18);
+global.maxSpeed = min((global.difficulty*75) div 9,18);
 global.difficulty = clamp(global.difficulty,0.25,2.5);
 if(!instance_exists(obj_finish) &amp;&amp; is_array(global.rank)){
     global.srtRank = bubbleSort(global.rank,0,global.maxRank+1);
@@ -200,39 +200,50 @@ for(r = 0; r &lt;= global.maxRank; r ++){
     }
 }
 /******************* Random spawn car *********************/
-var middle;
-middle = (obj_wall2.x-obj_wall.x)/2;
-if(spawnNextCar &gt;= 35){
-    spawnNextCar = 0;
-    if(background_vspeed[0] &gt; 0){
-        if(global.isMedian){
-            instance_create(obj_wall2.x-random(middle),-32,obj_car);
-            with(instance_create(obj_wall.x+4+random(middle-8),-32,obj_car)) {dir = -1; spd *= -1}
-        }
-        else{
-            instance_create(obj_wall.x+random(obj_wall2.x-obj_wall.x),-32,obj_car);
-        }
-        if(!instance_exists(obj_change_bkg)){
-            if (irandom(5) &lt; 2) {instance_create(random(obj_wall.x-8),-32,obj_misc);}
-        }
-        if (irandom(10) &lt; 2) {instance_create(0,-128,obj_intersection);}
-        repeat(2) instance_create(random_range(obj_wall2.x+8,room_width),-32,obj_misc);
-        if(irandom(15) == 0){
-            if(!instance_exists(obj_change_bkg) &amp;&amp; !global.isBeach){
-                instance_create(0,-320,obj_change_bkg);
-            }
-        }
-        if(irandom(15-(global.difficulty*3)) == 0){
-            instance_create(random_range(obj_wall.x,obj_wall2.x),-32,obj_puddle);
-        }
-    }
+var minSpawnLocation, maxSpawnLocation;
+switch(global.roadWidth) {
+    case 0:
+        minSpawnLocation = -46;
+        maxSpawnLocation = 46;
+        break;
+    case 1:
+        minSpawnLocation = -70;
+        maxSpawnLocation = 46;
+        break;
+    case -1:
+        minSpawnLocation = -46;
+        maxSpawnLocation = 70;
+        break;
+    case 2:
+        minSpawnLocation = -94;
+        maxSpawnLocation = 46;
+        break;
+    case -2:
+        minSpawnLocation = -46;
+        maxSpawnLocation = 94;
+        break;
+    case 3:
+        minSpawnLocation = -148;
+        maxSpawnLocation = -48;
+        break;
+    case -3:
+        minSpawnLocation = 48;
+        maxSpawnLocation = 148;
+        break;
 }
-else{
-    spawnNextCar++;
+var spawnLocation = roadInitialX+irandom_range(minSpawnLocation,maxSpawnLocation);
+if(background_vspeed[0] &gt; 2){
+    if (irandom(5) &lt; 2) {instance_create(spawnLocation,-32,obj_misc);}
+    if(irandom(30-(global.difficulty*3)) == 0){
+        instance_create(spawnLocation,-32,obj_car);
+    }
+    if(irandom(40-(global.difficulty*3)) == 0){
+        instance_create(spawnLocation,-32,obj_puddle);
+    }
 }
 /******************* Move GUI bars after completing *********************/
 if(instance_exists(obj_finish) || instance_exists(obj_game_over)){
-    if(barMove &lt; 64){
+    if(barMove &lt; 128){
         barMove++;
     }
 }
@@ -380,10 +391,10 @@ draw_text_transformed_colour(wv-30+barMove,541,"Car",1.5,1.5,90,white,white,whit
 /************************** Dashboard *******************************/
 draw_sprite(spr_dashboard,0,0,hv+barMove);
 for(b = 0; b &lt; 5; b++){
-    totalDistanceMove[b] = var_wipe(totalDistanceMove[b],floor(global.totalDistance/power(10,b)),100,0,0.05);
+    totalDistanceMove[b] = var_wipe(totalDistanceMove[b],(global.totalDistance/power(10,b)),100,0,0.05);
     draw_sprite_ext(spr_odometer,22+totalDistanceMove[b]*22,74-(b*18),hv-30+barMove,1.5,1.5,0,white,1);
 }
-totalDistanceMove[5] = var_wipe(totalDistanceMove[5],floor(global.totalDistance/power(10,-1)),100,0,0.05);
+totalDistanceMove[5] = var_wipe(totalDistanceMove[5],(global.totalDistance/power(10,-1)),100,0,0.05);
 draw_set_font(odoSprite);
 draw_set_valign(fa_center);
 draw_set_halign(fa_middle);
@@ -392,12 +403,69 @@ for (var i = 0; i &lt;= 180; i++) {
         draw_text_colour(64+lengthdir_x(45,180-i),hv-66+barMove+lengthdir_y(45,180-i),i,white,white,white,white,1);
     }
 }
-draw_line_width_colour(64,hv-66+barMove,64+barMove+lengthdir_x(30,180-(background_vspeed[0]*10)),hv-66+barMove+lengthdir_y(30,180-(background_vspeed[0]*10)),4,red,red);
+var line_xx, line_yy;
+draw_line_width_colour(64,hv-66+barMove,64+lengthdir_x(30,max(0,180-(background_vspeed[0]*10))),hv-66+barMove+lengthdir_y(30,max(0,180-(background_vspeed[0]*10))),4,red,red);
 draw_sprite_ext(spr_odometer,22+(totalDistanceMove[5])*22,100,hv-30+barMove,1.5,1.5,0,white,1);
 /************************** Time *******************************
 draw_set_valign(fa_top);
 draw_set_halign(fa_right);
 draw_text_transformed_colour(wv-5,0,string(global.time div 3600)+":"+script_digit((global.time div 60) mod 60,2),2,2,0,white,white,white,white,1);
+/************************** Nearest racer *******************************/
+var distance = 0;
+var time = 0;
+var str = "";
+var nearest;
+var posColor = red;
+if (instance_exists(obj_player)) {
+    var p = obj_player;
+    nearest = instance_nearest(p.x,p.y,obj_npc_racer);
+    if (instance_exists(nearest)) {
+        distance = abs(nearest.y-p.y)*pixelDistance/10000; //unit in kilometers
+        if (p.spd &gt; 0 &amp;&amp; nearest.spd &gt; 0) {
+            time = distance/(abs(p.spd-nearest.spd));
+            str = string_format(time,1,3)+" s";
+        }
+        else {
+            time = -1; // infinite
+            str = "inf";
+        }
+    }
+    else {
+        str = "---";
+    }
+    if (instance_exists(nearest)) {
+        var pos = 0;
+        if (nearest.y &gt; p.y) {
+            pos = 0; //behind
+            posColor = green;
+        }
+        else if (nearest.y &lt; p.y) {
+            pos = 1; //ahead
+            posColor = red;
+        }
+        draw_sprite_ext(spr_lead,0,wv-11,280+(40*(1-pos)),2,2,180*pos,posColor,1);
+    }
+}
+else {
+    /*nearest = instance_nearest((obj_wall2.x+obj_wall.x)/2,256,obj_npc_racer);
+    if (instance_exists(nearest)) {
+        distance = abs(nearest.y-256)*pixelDistance/10000; //unit in kilometers
+        if (p.spd &gt; 0 || nearest.spd &gt; 0) {
+            time = distance*(1/abs(p.spd-nearest.spd));
+            str = string_format(time,1,3)+" s";
+        }
+        else {
+            time = -1; // infinite
+            str = "inf";
+        }
+    }*/
+    time = -1;
+    str = "inf";
+}
+draw_set_font(global.gameFont);
+draw_set_valign(fa_middle);
+draw_set_halign(fa_right);
+draw_text_transformed_colour(wv,300,str,1,2,0,white,white,white,white,1);
 /************************** Odometer *******************************/
 gearMove = var_wipe(gearMove,playerGear,100,0.1,false);
 draw_sprite(spr_odometer,22+(gearMove*22),102,hv-62+barMove);

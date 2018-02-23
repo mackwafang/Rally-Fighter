@@ -124,6 +124,9 @@ draw_set_halign(fa_left);
 draw_text_transformed_colour(wv/2,272,string(timePlayed div 3600)+":"+script_digit((timePlayed div 60) mod 60,2),2,2,0,white,white,white,white,1);
 if(goBack &lt;= 0){
     room_goto(rm_title);
+    if (buffer_exists(global.saveBuffer)) {
+        buffer_delete(global.saveBuffer);
+    }
     score = 0;
 }
 else{

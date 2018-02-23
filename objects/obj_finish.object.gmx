@@ -117,16 +117,15 @@ if(health &lt;= 0 &amp;&amp; global.boost &lt;= 0 &amp;&amp; rankBonus == round(
             global.boost = 100;
             global.distance = 0;
             chooseNext = irandom(2);
-            chooseBkg = irandom(2);
+            chooseBkg = irandom(2);         
             global.weather = irandom(2);
-            global.isMedian = choose(true,false);
             with(obj_car) {instance_destroy();}
             with(obj_misc) {instance_destroy();}
             with(obj_intersection) {instance_destroy();}
             if(instance_exists(obj_wave)) {with(obj_wave) {instance_destroy();}}
             if(instance_exists(obj_npc_racer)) {with(obj_npc_racer) {instance_destroy();}}
             if(instance_exists(obj_change_bkg)) {with(obj_change_bkg) {instance_destroy();}}
-            switch(chooseNext){
+            /*switch(chooseNext){
                 case 0: background_index[1] = bkg_road1;
                         global.isMedian = false;
                         background_x[3] = obj_wall.x+94;
@@ -148,7 +147,7 @@ if(health &lt;= 0 &amp;&amp; global.boost &lt;= 0 &amp;&amp; rankBonus == round(
                         background_x[3] = obj_wall.x+234;
                         break;
             }
-            obj_wall2.x = background_x[3];
+            obj_wall2.x = background_x[3];*/
             switch(chooseBkg){
                 case 0: background_index[0] = bkg_grass;
                         global.isBeach = false;
@@ -157,11 +156,11 @@ if(health &lt;= 0 &amp;&amp; global.boost &lt;= 0 &amp;&amp; rankBonus == round(
                         global.isBeach = false;
                         break;
                 case 2: background_index[0] = bkg_sand;
-                        global.isBeach = choose(true,false);
-                        obj_control.beachSide = choose(-1,1);
+                        //global.isBeach = choose(true,false);
+                        //obj_control.beachSide = choose(-1,1);
                         break;
             }
-            if(global.isBeach){
+            /*if(global.isBeach){
                 for(i = -256; i &lt; room_height; i += 32){
                     if(obj_control.beachSide == 1){
                         with(instance_create(obj_wall2.x+32,i,obj_wave)){
@@ -175,6 +174,9 @@ if(health &lt;= 0 &amp;&amp; global.boost &lt;= 0 &amp;&amp; rankBonus == round(
                         }
                     }
                 }
+            }*/
+            if (buffer_exists(global.saveBuffer)) {
+                buffer_delete(global.saveBuffer);
             }
             instance_destroy();
             instance_create(0,0,obj_ready);

@@ -31,7 +31,8 @@ global.boost = 100;
 if(instance_exists(obj_finish)){
     with(obj_finish) {instance_destroy();}
 }
-addRacer = min(((obj_wall2.x+obj_wall.x) div 50)+global.level,24);
+//addRacer = min(((obj_wall2.x+obj_wall.x) div 50)+global.level,24);
+addRacer = min(global.level+10,24);
 view_yview[0] = 32-time;
 obj_control.randomMove = background_x[1];
 if(background_index[0] == bkg_water){
@@ -52,22 +53,26 @@ switch(background_index[1]){
     case bkg_road3: horAdd = 8; break;
     case bkg_road3_m: horAdd = 4; break;
 }
-if(global.isMedian){
+/*if(global.isMedian){
     wall = ((obj_wall2.x+obj_wall.x)/2)-24;
 }
 else{
     wall = obj_wall.x;
-}
-obj_player.x = wall+60;
+}*/
+//obj_player.x = wall+60;
+obj_player.x = roadInitialX;
 obj_player.y = 256;
+var wall = roadInitialX;
 for(i = 0; i &lt; addRacer; i += 1){
-    xx = wall+60+(((i mod horAdd)-1)*24);
+    xx = wall+60+(((i mod 2)-1)*24);
     yy = 192-(i*64);
     with(instance_create(xx,yy,obj_npc_racer)){
         carID = other.i+1;
     }
 }
 initRanking();
+instance_destroy(obj_road);
+initRoad();
 /********************* Buffers *********************/
 global.saveBuffer = buffer_create(1024,buffer_grow,1);
 global.stateSaved = true;
@@ -108,7 +113,7 @@ else{
 with(obj_npc_racer) {condition = 25;}
 if(time &lt;= 0) {
     instance_destroy();
-    for(i = -256; i &lt;= 0; i += 32){
+    /*for(i = -256; i &lt;= 0; i += 32){
         if(obj_control.beachSide == 1){
             with(instance_position(i,obj_wall2.x+32,obj_wave)){
                 instance_destroy();
@@ -119,7 +124,7 @@ if(time &lt;= 0) {
                 instance_destroy();
             }
         }
-    }
+    }*/
     obj_player.brake = false;
     obj_control.blackFade = 0;
 }

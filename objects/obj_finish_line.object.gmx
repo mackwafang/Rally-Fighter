@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i = obj_wall.x; i &lt; obj_wall2.x; i += 16){
+            <string>for(i = 0; i &lt; room_width; i += 16){
     draw_sprite(spr_finish_line,0,i,y);
 }
 </string>

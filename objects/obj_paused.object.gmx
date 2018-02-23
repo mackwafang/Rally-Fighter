@@ -79,9 +79,13 @@ if(keyboard_check_pressed(ord("Z"))){
                 break;
         case 1: if(global.stateSaved){
                     instance_destroy();
-                    buffer_seek(global.saveBuffer,buffer_seek_start,0);
-                    game_load_buffer(global.saveBuffer);
-                    buffer_delete(global.saveBuffer);
+                    if (buffer_exists(global.saveBuffer)) {
+                        game_load_buffer(global.saveBuffer);
+                        buffer_seek(global.saveBuffer,buffer_seek_start,0);
+                    }
+                    else {
+                        show_error("global.saveBuffer does not exists!",true);
+                    }
                     break;
                 }
         case 2: score = 0;

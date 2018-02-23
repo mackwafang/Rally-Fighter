@@ -85,12 +85,6 @@ waitBump = 0;
 if (image &lt; 4) {image += 0.5;} else {image = 0;}
 if(y &gt; room_height+50 || y &lt; -100) {instance_destroy();}
 image_angle = -hspeed*6*dir;
-if(place_meeting(x,y,obj_wall) || place_meeting(x,y,obj_wall2)){
-    instance_destroy();
-}
-if(x &gt; obj_wall2.x || x &lt; obj_wall.x){
-    instance_destroy();
-}
 /************** Move to block passing ***************/
 if(carType &gt; 0){
     if(spd &gt; 0){

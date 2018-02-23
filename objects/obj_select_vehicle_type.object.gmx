@@ -101,16 +101,16 @@ if(keyboard_check_pressed(ord("Z"))) {
     }
 }
 if(keyboard_check_pressed(vk_up)) {chooseType++;}
-if(keyboard_check_pressed(vk_down)){
-    chooseType--;
-    if(chooseType &lt; 0){
-        chooseType = 1;
-    }
-}
+if(keyboard_check_pressed(vk_down)){chooseType++;}
 chooseType = chooseType mod 2;
-if(keyboard_check_pressed(vk_left)) {carColor -= 16;}
-if(keyboard_check_pressed(vk_right)) {carColor += 16;}
-carColor = clamp(carColor,0,$EF);
+if(keyboard_check_pressed(vk_left)) {carColor -= $F;}
+if(keyboard_check_pressed(vk_right)) {carColor += $F;}
+if (carColor &lt; 0) {
+    carColor = $EF;
+}
+else if (carColor &gt; $EF) {
+    carColor = 0;
+}
 
 if(howFade &lt; 180){
     howFade ++;

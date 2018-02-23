@@ -49,6 +49,7 @@
     <sprite>sprites\spr_puddle</sprite>
     <sprite>sprites\spr_color_arrow</sprite>
     <sprite>sprites\spr_odo_sprite</sprite>
+    <sprite>sprites\spr_road</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_grass</background>
@@ -80,6 +81,9 @@
     <script>scripts\initHighScore.gml</script>
     <script>scripts\addHighScore.gml</script>
     <script>scripts\clearHighScore.gml</script>
+    <script>scripts\initRoad.gml</script>
+    <script>scripts\getRoadWidth.gml</script>
+    <script>scripts\todo.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_kinetic</object>
@@ -108,13 +112,15 @@
     <object>objects\obj_select_diff</object>
     <object>objects\obj_select_vehicle_type</object>
     <object>objects\obj_puddle</object>
+    <object>objects\obj_road</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_title</room>
     <room>rooms\rm_diff</room>
     <room>rooms\rm_game</room>
   </rooms>
-  <constants number="11">
+  <constants number="12">
+    <constant name="roadInitialX">256</constant>
     <constant name="windowYRatio">view_wport/view_wview</constant>
     <constant name="windowXRatio">view_hport/view_hview</constant>
     <constant name="pixelDistance">0.45</constant>
