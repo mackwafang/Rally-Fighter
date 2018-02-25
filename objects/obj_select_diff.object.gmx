@@ -121,8 +121,13 @@ draw_text_transformed_colour(wv/2,(hv/4),"Select#Difficulty",4,4,0,white,white,w
 draw_set_valign(fa_bottom)
 draw_text_transformed_colour(wv/2,(hv/2)-10,"Level",2,2,0,white,white,white,white,1);
 for(i = 0; i &lt; 3; i++){
-    diffRoll[i] = var_wipe(diffRoll[i],floor(chooseDiff/power(10,i-2)),100,0.1,0);
-    draw_sprite_ext(spr_odometer,22+diffRoll[i]*22,(wv/2)+16-(i*32),(hv/2)-10,2,2,0,white,1)
+    if (i == 0) {
+        diffRoll[0] = var_wipe(diffRoll[0],floor(chooseDiff/power(10,-2)),100,0,0.25);
+    }
+    else {
+        diffRoll[i] = var_wipe(diffRoll[i],floor(diffRoll[i-1]) div 10,100,0,0.25);
+    }
+    draw_sprite_ext(spr_odometer,21+diffRoll[i]*21,(wv/2)+16-(i*32),(hv/2)-10,2,2,0,white,1)
 }
 var diffString, diffColor;
 switch(chooseDiff){

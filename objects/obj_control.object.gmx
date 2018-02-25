@@ -353,7 +353,7 @@ for(var a = 0; a &lt; stringLength; a ++){
     else{ //Other Values
         scoreMove[a] = var_wipe(scoreMove[a],round(scoreMove[a-1]) div 10,100,0.2,0);
     }
-    draw_sprite_ext(spr_odometer,22+scoreMove[a]*22,((wv/2)-(24+(stringLength*12))+(stringLength*24))-(a*24),0,2,2,0,white,1);
+    draw_sprite_ext(spr_odometer,21+scoreMove[a]*21,((wv/2)-(24+(stringLength*12))+(stringLength*24))-(a*24),0,2,2,0,white,1);
 }
 /*draw_set_valign(fa_top);
 draw_set_halign(fa_right);
@@ -392,7 +392,7 @@ draw_text_transformed_colour(wv-30+barMove,541,"Car",1.5,1.5,90,white,white,whit
 draw_sprite(spr_dashboard,0,0,hv+barMove);
 for(var b = 0; b &lt; 5; b++){
     totalDistanceMove[b] = var_wipe(totalDistanceMove[b],(global.totalDistance/power(10,b)),100,0,0.05);
-    draw_sprite_ext(spr_odometer,22+totalDistanceMove[b]*22,74-(b*18),hv-30+barMove,1.5,1.5,0,white,1);
+    draw_sprite_ext(spr_odometer,21+totalDistanceMove[b]*21,74-(b*18),hv-30+barMove,1.5,1.5,0,white,1);
 }
 totalDistanceMove[5] = var_wipe(totalDistanceMove[5],(global.totalDistance/power(10,-1)),100,0,0.05);
 draw_set_font(odoSprite);
@@ -494,7 +494,7 @@ for(var c = 0; c &lt; 3; c++){
     else{
         difficultyMove[c] = var_wipe(difficultyMove[c],round(difficultyMove[c-1]) div 10,100,0,0.1);
     }
-    draw_sprite_ext(spr_odometer,22+difficultyMove[c]*22,wv-32-(c*18),hv-32+barMove,1.5,1.5,0,white,1);
+    draw_sprite_ext(spr_odometer,21+difficultyMove[c]*21,wv-32-(c*18),hv-32+barMove,1.5,1.5,0,white,1);
 }
 
 /************************** Black Fade *******************************/

@@ -120,7 +120,7 @@ if(bump &gt; 0){
         bump = 0;
     }
 }
-bumpScore = (bump*25)+50;
+bumpScore = (bump*50)+100;
 /************** Boost ***************/
 if(irandom(400) &lt; (placement+global.difficulty)){
     if(spd &gt; 2){
@@ -337,9 +337,8 @@ if(other.invisi &lt;= 0){
 }
 bump ++;
 score += bumpScore;
-with(instance_create(x,y,obj_score_ind)){
-    word = string(other.bumpScore);
-}
+var ind = instance_create(x,y,obj_score_ind);
+ind.word = string(bumpScore);
 if(y &lt; other.y+8){
     hspeed = (x-other.x)/2;
     other.hspeed = -(x-other.x)/2;

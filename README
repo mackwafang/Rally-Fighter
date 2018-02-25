@@ -9,3 +9,10 @@ ver 2.4.3.2
 
 ver 2.4.4
 	- Fixed other car spawn locations
+	
+ver 2.4.4.1
+	- Added gravel texture to roads
+	- Doubled points gain to NPC Racers
+		+ Initial bump increased from 50 to 100
+		+ Continuous bumps increased from 25 to 50 per bumps
+	- Removed water background from circulation

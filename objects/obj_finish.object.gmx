@@ -152,12 +152,12 @@ if(health &lt;= 0 &amp;&amp; global.boost &lt;= 0 &amp;&amp; rankBonus == round(
                 case 0: background_index[0] = bkg_grass;
                         global.isBeach = false;
                         break;
-                case 1: background_index[0] = bkg_water;
+                /*case 1: background_index[0] = bkg_water;
                         global.isBeach = false;
-                        break;
+                        break;*/
                 case 2: background_index[0] = bkg_sand;
-                        //global.isBeach = choose(true,false);
-                        //obj_control.beachSide = choose(-1,1);
+                        global.isBeach = choose(true,false);
+                        obj_control.beachSide = choose(-1,1);
                         break;
             }
             /*if(global.isBeach){
