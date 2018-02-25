@@ -109,8 +109,40 @@ if(bump &gt; 0){
 }
 bumpScore = (bump*25)+50;
 /************** Move to block passing ***************/
+var minTo, maxTo;
+switch(getRoadWidth(obj_road.image_index)) {
+    case 0:
+        minTo = -46;
+        maxTo = 46;
+        break;
+    case 1:
+        minTo = -70;
+        maxTo = 46;
+        break;
+    case -1:
+        minTo = -46;
+        maxTo = 70;
+        break;
+    case 2:
+        minTo = -94;
+        maxTo = 46;
+        break;
+    case -2:
+        minTo = -46;
+        maxTo = 94;
+        break;
+    case 3:
+        minTo = -148;
+        maxTo = -48;
+        break;
+    case -3:
+        minTo = 48;
+        maxTo = 148;
+        break;
+}
+var goTo = roadInitialX+irandom_range(minTo,maxTo);
 if (!place_meeting(x,y,obj_road)) {
-    hspeed += sign(obj_road.x-x)*0.1;
+    hspeed += sign(goTo-x)*0.1;
 }
 else {
     if(carType &gt; 0){

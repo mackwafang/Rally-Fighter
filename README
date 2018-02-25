@@ -1,0 +1,11 @@
+Rally Fighter by mackwafang
+
+CHANGE LOG
+ver 2.4.3.2
+	- Removed dynamic background changee
+	- Removed rotating view angle
+	- Added procedural road generation
+	- Change player's acceleration to mimics real race car
+
+ver 2.4.4
+	- Fixed other car spawn locations

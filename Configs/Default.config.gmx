@@ -220,13 +220,13 @@
     <option_changeresolution>false</option_changeresolution>
     <option_closeesc>true</option_closeesc>
     <option_colordepth>0</option_colordepth>
-    <option_display_name>GameMaker: Studio</option_display_name>
+    <option_display_name>Rally Fighter</option_display_name>
     <option_displayerrors>True</option_displayerrors>
     <option_ecma>0</option_ecma>
     <option_facebook_app_display_name></option_facebook_app_display_name>
     <option_facebook_appid></option_facebook_appid>
     <option_facebook_enable>false</option_facebook_enable>
-    <option_fast_collision_compatibility>false</option_fast_collision_compatibility>
+    <option_fast_collision_compatibility>False</option_fast_collision_compatibility>
     <option_freeze>false</option_freeze>
     <option_frequency>0</option_frequency>
     <option_frontimage>nil</option_frontimage>
@@ -301,6 +301,24 @@
     <option_ios_icon_57>Configs\Default\ios\icons\icon57.png</option_ios_icon_57>
     <option_ios_icon_72>Configs\Default\ios\icons\icon72.png</option_ios_icon_72>
     <option_ios_icon_76>Configs\Default\ios\icons\icon76.png</option_ios_icon_76>
+    <option_ios_icon_ipad_app_152>Configs\Default\ios\icons\app\ipad_152.png</option_ios_icon_ipad_app_152>
+    <option_ios_icon_ipad_app_76>Configs\Default\ios\icons\app\ipad_76.png</option_ios_icon_ipad_app_76>
+    <option_ios_icon_ipad_notification_20>Configs\Default\ios\icons\notification\ipad_20.png</option_ios_icon_ipad_notification_20>
+    <option_ios_icon_ipad_notification_40>Configs\Default\ios\icons\notification\ipad_40.png</option_ios_icon_ipad_notification_40>
+    <option_ios_icon_ipad_pro_app_167>Configs\Default\ios\icons\app\ipad_pro_167.png</option_ios_icon_ipad_pro_app_167>
+    <option_ios_icon_ipad_settings_29>Configs\Default\ios\icons\settings\ipad_29.png</option_ios_icon_ipad_settings_29>
+    <option_ios_icon_ipad_settings_58>Configs\Default\ios\icons\settings\ipad_58.png</option_ios_icon_ipad_settings_58>
+    <option_ios_icon_ipad_spotlight_40>Configs\Default\ios\icons\spotlight\ipad_40.png</option_ios_icon_ipad_spotlight_40>
+    <option_ios_icon_ipad_spotlight_80>Configs\Default\ios\icons\spotlight\ipad_80.png</option_ios_icon_ipad_spotlight_80>
+    <option_ios_icon_iphone_app_120>Configs\Default\ios\icons\app\iphone_120.png</option_ios_icon_iphone_app_120>
+    <option_ios_icon_iphone_app_180>Configs\Default\ios\icons\app\iphone_180.png</option_ios_icon_iphone_app_180>
+    <option_ios_icon_iphone_notification_40>Configs\Default\ios\icons\notification\iphone_40.png</option_ios_icon_iphone_notification_40>
+    <option_ios_icon_iphone_notification_60>Configs\Default\ios\icons\notification\iphone_60.png</option_ios_icon_iphone_notification_60>
+    <option_ios_icon_iphone_settings_58>Configs\Default\ios\icons\settings\iphone_58.png</option_ios_icon_iphone_settings_58>
+    <option_ios_icon_iphone_settings_87>Configs\Default\ios\icons\settings\iphone_87.png</option_ios_icon_iphone_settings_87>
+    <option_ios_icon_iphone_spotlight_120>Configs\Default\ios\icons\spotlight\iphone_120.png</option_ios_icon_iphone_spotlight_120>
+    <option_ios_icon_iphone_spotlight_80>Configs\Default\ios\icons\spotlight\iphone_80.png</option_ios_icon_iphone_spotlight_80>
+    <option_ios_icon_itunes_artwork_1024>Configs\Default\ios\icons\itunes\itunes_1024.png</option_ios_icon_itunes_artwork_1024>
     <option_ios_interpolate>-1</option_ios_interpolate>
     <option_ios_ipad_retina_splash_png>Configs\Default\ios\iPadRetinasplash.png</option_ios_ipad_retina_splash_png>
     <option_ios_ipad_retina_splash_portrait_png>Configs\Default\ios\iPadRetinasplashPortrait.png</option_ios_ipad_retina_splash_portrait_png>
@@ -312,10 +330,22 @@
     <option_ios_iphone6_splash_portrait_png>Configs\Default\ios\iPhone6splashPortrait.png</option_ios_iphone6_splash_portrait_png>
     <option_ios_iphone6plus_splash_png>Configs\Default\ios\iPhone6Plussplash.png</option_ios_iphone6plus_splash_png>
     <option_ios_iphone6plus_splash_portrait_png>Configs\Default\ios\iPhone6PlussplashPortrait.png</option_ios_iphone6plus_splash_portrait_png>
+    <option_ios_iphone7_splash_png>Configs\Default\ios\iPhone7splash.png</option_ios_iphone7_splash_png>
+    <option_ios_iphone7_splash_portrait_png>Configs\Default\ios\iPhone7splashPortrait.png</option_ios_iphone7_splash_portrait_png>
+    <option_ios_iphone7plus_splash_png>Configs\Default\ios\iPhone7Plussplash.png</option_ios_iphone7plus_splash_png>
+    <option_ios_iphone7plus_splash_portrait_png>Configs\Default\ios\iPhone7PlussplashPortrait.png</option_ios_iphone7plus_splash_portrait_png>
+    <option_ios_iphone8_splash_png>Configs\Default\ios\iPhone8splash.png</option_ios_iphone8_splash_png>
+    <option_ios_iphone8_splash_portrait_png>Configs\Default\ios\iPhone8splashPortrait.png</option_ios_iphone8_splash_portrait_png>
+    <option_ios_iphone8plus_splash_png>Configs\Default\ios\iPhone8Plussplash.png</option_ios_iphone8plus_splash_png>
+    <option_ios_iphone8plus_splash_portrait_png>Configs\Default\ios\iPhone8PlussplashPortrait.png</option_ios_iphone8plus_splash_portrait_png>
     <option_ios_iphone_retina_splash_png>Configs\Default\ios\IphoneRetinasplash.png</option_ios_iphone_retina_splash_png>
     <option_ios_iphone_retina_splash_portrait_png>Configs\Default\ios\IphoneRetinasplashPortrait.png</option_ios_iphone_retina_splash_portrait_png>
     <option_ios_iphone_splash_png>Configs\Default\ios\iPhonesplash.png</option_ios_iphone_splash_png>
     <option_ios_iphone_splash_portrait_png>Configs\Default\ios\iPhonesplashPortrait.png</option_ios_iphone_splash_portrait_png>
+    <option_ios_iphonese_splash_png>Configs\Default\ios\iPhonesesplash.png</option_ios_iphonese_splash_png>
+    <option_ios_iphonese_splash_portrait_png>Configs\Default\ios\iPhonesesplashPortrait.png</option_ios_iphonese_splash_portrait_png>
+    <option_ios_iphonex_splash_png>Configs\Default\ios\iPhonexsplash.png</option_ios_iphonex_splash_png>
+    <option_ios_iphonex_splash_portrait_png>Configs\Default\ios\iPhonexsplashPortrait.png</option_ios_iphonex_splash_portrait_png>
     <option_ios_major_version>1</option_ios_major_version>
     <option_ios_minor_version>0</option_ios_minor_version>
     <option_ios_orient_landscape>-1</option_ios_orient_landscape>
@@ -528,11 +558,11 @@
     <option_win8_store_logo>Configs\Default\Windows8\logos\logo50.png</option_win8_store_logo>
     <option_win8_texture_page>1024</option_win8_texture_page>
     <option_win8_wide_logo>Configs\Default\Windows8\logos\logo310.png</option_win8_wide_logo>
-    <option_winUAP_allowfullscreen>false</option_winUAP_allowfullscreen>
+    <option_winUAP_allowfullscreen>0</option_winUAP_allowfullscreen>
     <option_winUAP_build_version>0</option_winUAP_build_version>
     <option_winUAP_certificate_location>WinUWPRunner_TemporaryKey.pfx</option_winUAP_certificate_location>
     <option_winUAP_display_name>Rally Fighter (new)</option_winUAP_display_name>
-    <option_winUAP_fullscreen>false</option_winUAP_fullscreen>
+    <option_winUAP_fullscreen>0</option_winUAP_fullscreen>
     <option_winUAP_internet_capable>0</option_winUAP_internet_capable>
     <option_winUAP_interpolate>-1</option_winUAP_interpolate>
     <option_winUAP_landscape_allowed>-1</option_winUAP_landscape_allowed>
@@ -563,7 +593,7 @@
     <option_winUAP_wide_logo>Configs\Default\WindowsUAP\logos\WideLogo.scale-100.png</option_winUAP_wide_logo>
     <option_windowcolor>clBlack</option_windowcolor>
     <option_windows_alternate_sync_method>False</option_windows_alternate_sync_method>
-    <option_windows_build_version>0</option_windows_build_version>
+    <option_windows_build_version>2</option_windows_build_version>
     <option_windows_company_info></option_windows_company_info>
     <option_windows_copyright_info></option_windows_copyright_info>
     <option_windows_create_textures_on_demand>False</option_windows_create_textures_on_demand>

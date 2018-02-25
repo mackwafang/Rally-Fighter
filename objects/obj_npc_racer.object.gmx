@@ -141,8 +141,40 @@ else{
 }
 /************** Move to block passing ***************/
 if(bump &lt;= 0){
+    var minTo, maxTo;
+    switch(getRoadWidth(obj_road.image_index)) {
+        case 0:
+            minTo = -46;
+            maxTo = 46;
+            break;
+        case 1:
+            minTo = -70;
+            maxTo = 46;
+            break;
+        case -1:
+            minTo = -46;
+            maxTo = 70;
+            break;
+        case 2:
+            minTo = -94;
+            maxTo = 46;
+            break;
+        case -2:
+            minTo = -46;
+            maxTo = 94;
+            break;
+        case 3:
+            minTo = -148;
+            maxTo = -48;
+            break;
+        case -3:
+            minTo = 48;
+            maxTo = 148;
+            break;
+    }
+    var goTo = roadInitialX+irandom_range(minTo,maxTo);
     if (!place_meeting(x,y,obj_road)) {
-        hspeed += sign(obj_road.x-x)*0.3;
+        hspeed += sign(goTo-x)*0.3;
     }
     else {
         if (collision_rectangle(x+6,y+10,x+32,y+40+(spd*2),obj_kinetic,false,true) || collision_rectangle(x-32,y-10,x-6,y-40-(spd*2),obj_kinetic,false,true)){

@@ -187,12 +187,13 @@ else{
     }
 }
 spd += accelRate;
+/************ Gear change ************/
 if (spd &gt; 0) {
     var current_spd = round(spd*10);
     if (accelerate) {
         if ((current_spd mod 40 == 0)) {
             if (current_spd div 40 == gear) {
-                spd *= 0.7;
+                spd *= 0.9;
                 gear += 1;
             }
         }
@@ -200,7 +201,7 @@ if (spd &gt; 0) {
     else {
         if ((current_spd mod 40 == 0)) {
             if (current_spd div 40 == gear-1) {
-                spd *= 1.3;
+                spd *= 1.1;
                 gear -= 1;
             }
         }
