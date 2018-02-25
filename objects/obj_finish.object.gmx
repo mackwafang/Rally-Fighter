@@ -122,9 +122,13 @@ if(health &lt;= 0 &amp;&amp; global.boost &lt;= 0 &amp;&amp; rankBonus == round(
             with(obj_car) {instance_destroy();}
             with(obj_misc) {instance_destroy();}
             with(obj_intersection) {instance_destroy();}
-            if(instance_exists(obj_wave)) {with(obj_wave) {instance_destroy();}}
-            if(instance_exists(obj_npc_racer)) {with(obj_npc_racer) {instance_destroy();}}
-            if(instance_exists(obj_change_bkg)) {with(obj_change_bkg) {instance_destroy();}}
+            if (instance_exists(obj_player)) {
+                obj_player.prevMark[0] = -1;
+                obj_player.prevMark[1] = -1;
+            }
+            if (instance_exists(obj_wave)) {with(obj_wave) {instance_destroy();}}
+            if (instance_exists(obj_npc_racer)) {with(obj_npc_racer) {instance_destroy();}}
+            if (instance_exists(obj_change_bkg)) {with(obj_change_bkg) {instance_destroy();}}
             /*switch(chooseNext){
                 case 0: background_index[1] = bkg_road1;
                         global.isMedian = false;

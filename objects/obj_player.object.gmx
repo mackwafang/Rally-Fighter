@@ -50,6 +50,8 @@ turn = 0;
 cruising = 0;
 snd_hit1 = snd_car_hit1;
 condition = global.maxCondition;
+prevMark[0] = -1;
+prevMark[1] = -1;
 </string>
           </argument>
         </arguments>
@@ -160,6 +162,31 @@ if(brake){
     accelerate = false;
     boost = false;
     spd -= tan(degtorad(2*(5-(friction+2))));
+    switch(carType) {
+        case 0:
+            var o = instance_create(x+4,y,obj_tire_mark);
+            if (prevMark[0] != -1) {
+                o.to = prevMark[0];
+            }
+            prevMark[0] = o;
+            var o2 = instance_create(x-4,y,obj_tire_mark);
+            if (prevMark[1] != -1) {
+                o2.to = prevMark[1];
+            }
+            prevMark[1] = o2;
+            break;
+        case 1:
+            var o = instance_create(x,y,obj_tire_mark);
+            if (prevMark[0] != -1) {
+                o.to = prevMark[0];
+            }
+            prevMark[0] = o;
+            break;
+    }
+}
+else {
+    prevMark[0] = -1;
+    prevMark[1] = -1;
 }
 /************ Boost ************/
 if(keyboard_check(ord("X")) &amp;&amp; spd &gt; 0) {boost = true;}

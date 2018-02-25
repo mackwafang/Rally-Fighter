@@ -12,6 +12,8 @@ ver 2.4.4
 	
 ver 2.4.4.1
 	- Added gravel texture to roads
+	- Added tire mark while braking
+	- Change odometer font
 	- Doubled points gain to NPC Racers
 		+ Initial bump increased from 50 to 100
 		+ Continuous bumps increased from 25 to 50 per bumps

@@ -113,6 +113,7 @@
     <object>objects\obj_select_vehicle_type</object>
     <object>objects\obj_puddle</object>
     <object>objects\obj_road</object>
+    <object>objects\obj_tire_mark</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_title</room>
