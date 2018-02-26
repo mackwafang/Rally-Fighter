@@ -237,7 +237,13 @@ if(background_vspeed[0] &gt; 2){
     if(irandom(30-(global.difficulty*3)) == 0){
         instance_create(spawnLocation,-32,obj_car);
     }
-    if(irandom(40-(global.difficulty*3)) == 0){
+    if(irandom(10) &lt; 2){ 
+        var spawnRange = irandom(view_xview[0]+view_wview[0]);
+        if (!place_meeting(spawnRange,-32,obj_misc)) {
+            instance_create(spawnRange,-32,obj_misc);
+        }
+    }
+    if(irandom(100-(global.difficulty*3)) == 0){
         instance_create(spawnLocation,-32,obj_puddle);
     }
 }

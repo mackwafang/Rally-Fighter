@@ -133,7 +133,7 @@ if (!place_meeting(x,y,obj_road)) {
 }
 var accelRate = 0;
 if(accelerate){
-    if(spd &lt; global.maxSpeed){
+    if(spd &lt; global.maxSpeed*roadPenalty){
         //acceleration
         accelRate = (sin(degtorad(0.6/(gear*0.5)))*(2.35-friction))*bonusAcc*roadPenalty;
     }

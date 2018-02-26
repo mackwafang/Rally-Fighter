@@ -73,9 +73,11 @@ if (y &gt; room_height+32) {instance_destroy();}
           <argument>
             <kind>1</kind>
             <string>if (instance_exists(to)) {
+    draw_set_alpha(0.5);
     draw_set_color(0);
     draw_line_width(x,y,to.x,to.y,2);
     draw_set_color(white);
+    draw_set_alpha(1);
 }
 </string>
           </argument>

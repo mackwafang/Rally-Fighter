@@ -58,6 +58,8 @@ global.rank[carID,0] = obj_finish_line.y-y;
 global.rank[carID,1] = carID;
 displayAlpha = 0;
 placement = 0;
+prevMark[0] = -1;
+prevMark[1] = -1;
 </string>
           </argument>
         </arguments>
@@ -119,6 +121,33 @@ if(bump &gt; 0){
     else{
         bump = 0;
     }
+}
+if (brake | abs(hspeed) == turnSpeed) {
+    switch(carType) {
+        case 0:
+            var o = instance_create(x+4,y,obj_tire_mark);
+            if (prevMark[0] != -1) {
+                o.to = prevMark[0];
+            }
+            prevMark[0] = o;
+            var o2 = instance_create(x-4,y,obj_tire_mark);
+            if (prevMark[1] != -1) {
+                o2.to = prevMark[1];
+            }
+            prevMark[1] = o2;
+            break;
+        case 1:
+            var o = instance_create(x,y,obj_tire_mark);
+            if (prevMark[0] != -1) {
+                o.to = prevMark[0];
+            }
+            prevMark[0] = o;
+            break;
+    }
+}
+else {
+    prevMark[0] = -1;
+    prevMark[1] = -1;
 }
 bumpScore = (bump*50)+100;
 /************** Boost ***************/
