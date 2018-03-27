@@ -54,6 +54,7 @@ turn = 0;
 imageIndex = 0;
 invisi = 120;
 showDirection = false;
+invisi = 120;
 chase = false;
 global.rank[carID,0] = obj_finish_line.y-y;
 global.rank[carID,1] = carID;
@@ -142,10 +143,40 @@ if(bump &gt; 0){
         bump = 0;
     }
 }
+<<<<<<< HEAD
 if (brake) {
     accelerate = false;
     boost = false;
     spd -= tan(degtorad(2*(5-(friction+2))));
+=======
+if(brake){
+    accelerate = false;
+    boost = false;
+    spd -= tan(degtorad(2*(5-(friction+2))));
+}
+if (brake | abs(hspeed) == turnSpeed) {
+    switch(carType) {
+        case 0:
+            var o = instance_create(x+4,y,obj_tire_mark);
+            if (prevMark[0] != -1) {
+                o.to = prevMark[0];
+            }
+            prevMark[0] = o;
+            var o2 = instance_create(x-4,y,obj_tire_mark);
+            if (prevMark[1] != -1) {
+                o2.to = prevMark[1];
+            }
+            prevMark[1] = o2;
+            break;
+        case 1:
+            var o = instance_create(x,y,obj_tire_mark);
+            if (prevMark[0] != -1) {
+                o.to = prevMark[0];
+            }
+            prevMark[0] = o;
+            break;
+    }
+>>>>>>> origin/master
 }
 if (spd &gt; 0) {
     if (brake | (abs(hspeed) &gt;= turnSpeed-0.75)) {
@@ -281,6 +312,10 @@ if(condition &lt;= 0){
         carID = other.carID;
     }
 }
+if(invisi &gt; 0) {
+    invisi --;
+}
+image_alpha = abs((invisi/10 mod 2)-1);
 </string>
           </argument>
         </arguments>
@@ -304,8 +339,17 @@ if(condition &lt;= 0){
           <argument>
             <kind>1</kind>
             <string>move_contact_solid(direction,1);
+<<<<<<< HEAD
 if (invisi &lt;= 0) {condition -= abs(hspeed)+2;}
 if (other.invisi &lt;= 0) {other.condition -= abs(hspeed)+2;}
+=======
+if (invisi &lt;= 0) {
+    condition -= abs(hspeed)+2;
+}
+if (other.invisi &lt;= 0) {
+    other.condition -= abs(hspeed)+2;
+}
+>>>>>>> origin/master
 if(bump &gt; 0){
     bump ++;
     score += bumpScore;
