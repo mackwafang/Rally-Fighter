@@ -62,17 +62,50 @@ else{
 //obj_player.x = wall+60;
 obj_player.x = roadInitialX;
 obj_player.y = 256;
-var wall = roadInitialX;
+instance_destroy(obj_road);
+initRoad();
+var wall, spawnWidth;
+switch(getRoadWidth(obj_road.image_index)) {
+    case 0:
+        wall = -46;
+        spawnWidth = 2;
+        break;
+    case 1:
+        wall = -70;
+        spawnWidth = 3;
+        break;
+    case -1:
+        wall = -46;
+        spawnWidth = 3;
+        break;
+    case 2:
+        wall = -94
+        spawnWidth = 4;
+        break;
+    case -2:
+        wall = -46;
+        spawnWidth = 4;
+        break;
+    case 3:
+        wall = -148;
+        spawnWidth = 2;
+        break;
+    case -3:
+        wall = 48;
+        spawnWidth = 2;
+        break;
+}
 for(i = 0; i &lt; addRacer; i += 1){
-    xx = wall+60+(((i mod 2)-1)*24);
+    xx = roadInitialX+wall+36+((i mod spawnWidth)*24);
     yy = 192-(i*64);
     with(instance_create(xx,yy,obj_npc_racer)){
+        if (carID == 1) {
+            view_object[0] = self;
+        }
         carID = other.i+1;
     }
 }
 initRanking();
-instance_destroy(obj_road);
-initRoad();
 /********************* Buffers *********************/
 global.saveBuffer = buffer_create(1024,buffer_grow,1);
 global.stateSaved = true;

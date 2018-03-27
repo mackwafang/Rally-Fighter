@@ -119,15 +119,16 @@ if(health &lt;= 0 &amp;&amp; global.boost &lt;= 0 &amp;&amp; rankBonus == round(
             chooseNext = irandom(2);
             chooseBkg = irandom(2);         
             global.weather = irandom(2);
-            with(obj_car) {instance_destroy();}
-            with(obj_misc) {instance_destroy();}
-            with(obj_intersection) {instance_destroy();}
+            instance_destroy(obj_car);
+            instance_destroy(obj_misc);
+            instance_destroy(obj_intersection);
+            instance_destroy(obj_tire_mark);
             if (instance_exists(obj_player)) {
                 obj_player.prevMark[0] = -1;
                 obj_player.prevMark[1] = -1;
             }
-            if (instance_exists(obj_wave)) {with(obj_wave) {instance_destroy();}}
-            if (instance_exists(obj_npc_racer)) {with(obj_npc_racer) {instance_destroy();}}
+            instance_destroy(obj_wave);
+            instance_destroy(obj_npc_racer);
             if (instance_exists(obj_change_bkg)) {with(obj_change_bkg) {instance_destroy();}}
             /*switch(chooseNext){
                 case 0: background_index[1] = bkg_road1;

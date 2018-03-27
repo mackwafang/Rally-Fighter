@@ -33,6 +33,7 @@ with(all){
 surface_reset_target();
 instance_deactivate_all(true);
 instance_activate_object(obj_misc);
+instance_activate_object(obj_road);
 for(i = 0; i &lt; 8; i++) {background_vspeed[i] = 0;}
 maxOptions = 5;
 currentOption = 0;
